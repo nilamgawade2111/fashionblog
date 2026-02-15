@@ -1,0 +1,51 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: fashionblog-ingressroute
+  namespace: default
+  labels:
+    app: fashionblog
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`fashionblog.localhost`)
+      kind: Rule
+      services:
+        - name: fashionblog
+          namespace: default
+          port: 8000
+          scheme: http
+          strategy: RoundRobin
+          healthCheck:
+            path: /
+            interval: 10s
+            timeout: 3s
+            scheme: http
+      middlewares:
+        - name: default-retry
+        - name: default-circuitbreaker
+        - name: default-compress
+        - name: default-buffering
+        - name: dev-headers
+    - match: Host(`fashionblog.framework.autopath.ai`)
+      kind: Rule
+      services:
+        - name: fashionblog
+          namespace: default
+          port: 8000
+          scheme: http
+          strategy: RoundRobin
+          healthCheck:
+            path: /
+            interval: 10s
+            timeout: 3s
+            scheme: http
+      middlewares:
+        - name: default-retry
+        - name: default-circuitbreaker
+        - name: default-compress
+        - name: default-buffering
+        - name: default-headers
+
