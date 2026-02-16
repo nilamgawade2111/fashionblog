@@ -16,9 +16,13 @@ const BlogListPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setBlogs(blogsData);
-    setFilteredBlogs(blogsData);
-    const uniqueCategories = [...new Set(blogsData.flatMap(blog => blog.tags))];
+    const updatedBlogsData = blogsData.map(blog => ({
+      ...blog,
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS60y-B-qoPCqpgARehINBImhuLDMaSpheV7A&s'
+    }));
+    setBlogs(updatedBlogsData);
+    setFilteredBlogs(updatedBlogsData);
+    const uniqueCategories = [...new Set(updatedBlogsData.flatMap(blog => blog.tags))];
     setCategories(uniqueCategories);
   }, []);
 
