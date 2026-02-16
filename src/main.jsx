@@ -4,11 +4,13 @@ import App from './App';
 import './index.css';
 
 export default function Main() {
-  ReactDOM.createRoot(document.getElementById('root')).render(
+  return (
     <React.StrictMode>
       <App />
     </React.StrictMode>
   );
 }
 
-Main();
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <Main />
+);
