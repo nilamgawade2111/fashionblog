@@ -5,6 +5,7 @@ import BlogDetailPage from './pages/BlogDetailPage';
 import CategoryPage from './pages/CategoryPage';
 import HomePage from './pages/HomePage';
 import FashionPage from './pages/FashionPage';
+import AboutPage from './pages/AboutPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -19,7 +20,8 @@ function App() {
             <Route path="/blogs" element={<BlogListPage />} />
             <Route path="/blog/:id" element={<BlogDetailPage />} />
             <Route path="/category/:category" element={<CategoryPage />} />
-            <Route path="/fashion" element={<FashionPage />} />
+            <Route path="/category/fashion" element={<FashionPage />} />
+            <Route path="/about" element={<AboutPage />} />
           </Routes>
         </main>
         <Footer />
