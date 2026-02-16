@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import blogs from '../data/blogs.json';
 import BlogCard from '../components/BlogCard';
+import CategoryList from '../components/CategoryList';
 
 const CategoryPage = () => {
   const { category } = useParams();
@@ -30,21 +31,26 @@ const CategoryPage = () => {
   }, [category]);
 
   if (loading) {
-    return <div className="text-center py-8">Loading blogs...</div>;
+    return <div className="text-center py-8" aria-label="Loading blogs">Loading blogs...</div>;
   }
 
   if (error) {
-    return <div className="text-center py-8 text-red-500">{error}</div>;
+    return <div className="text-center py-8 text-red-500" aria-label="Error message">{error}</div>;
   }
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center capitalize">{category} Blogs</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {filteredBlogs.map((blog) => (
-          <BlogCard key={blog.id} post={blog} />
-        ))}
-      </div>
+      <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center capitalize" aria-label={`${category} Blogs`}>{category} Blogs</h1>
+      <CategoryList />
+      {filteredBlogs.length === 0 ? (
+        <div className="text-center py-8 text-gray-500" aria-label="No blogs found message">No blogs found for this category.</div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {filteredBlogs.map((blog) => (
+            <BlogCard key={blog.id} post={blog} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

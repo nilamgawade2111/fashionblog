@@ -25,6 +25,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/blogs" element={<BlogListPage />} />
           <Route path="/blogs/:id" element={<BlogDetailPage />} />
+          <Route path="/category" element={<CategoryPage />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/sell" element={<SellPage />} />
