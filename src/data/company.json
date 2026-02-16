@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Fashion Blog Inc.",
+    "description": "Fashion Blog Inc. is a leading online platform dedicated to bringing the latest trends, insights, and news from the world of fashion. Our mission is to inspire and empower fashion enthusiasts around the globe.",
+    "team": [
+      {
+        "name": "Alice Johnson",
+        "role": "CEO & Founder",
+        "image": "alice-johnson.jpg"
+      },
+      {
+        "name": "Robert Smith",
+        "role": "Chief Editor",
+        "image": "robert-smith.jpg"
+      },
+      {
+        "name": "Emily Davis",
+        "role": "Fashion Writer",
+        "image": "emily-davis.jpg"
+      },
+      {
+        "name": "Michael Brown",
+        "role": "Marketing Director",
+        "image": "michael-brown.jpg"
+      },
+      {
+        "name": "Sophia Lee",
+        "role": "Social Media Manager",
+        "image": "sophia-lee.jpg"
+      }
+    ]
+  }
+]
