@@ -3,7 +3,7 @@ import React from 'react';
 const FeaturedListings = ({ listings }) => {
   if (!listings || listings.length === 0) {
     return (
-      <section className="bg-gray-100 py-10">
+      <section className="bg-red-500 py-10">
         <div className="container mx-auto px-4 text-center">
           <p className="text-lg text-gray-600">No featured listings available at the moment.</p>
         </div>
@@ -12,7 +12,7 @@ const FeaturedListings = ({ listings }) => {
   }
 
   return (
-    <section className="bg-white py-10">
+    <section className="bg-red-500 py-10">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Featured Listings</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
