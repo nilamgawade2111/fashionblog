@@ -10,9 +10,12 @@ const Footer = () => {
             <h2 className="text-lg font-bold">FashionBlog</h2>
             <p className="text-gray-400">Stay stylish with us</p>
           </div>
-          <div className="flex space-x-4">
+          <nav className="flex space-x-4">
             <Link to="/" className="hover:text-gray-400 transition duration-300" aria-label="Home">
               Home
+            </Link>
+            <Link to="/blogs" className="hover:text-gray-400 transition duration-300" aria-label="Blogs">
+              Blogs
             </Link>
             <Link to="/about" className="hover:text-gray-400 transition duration-300" aria-label="About Us">
               About Us
@@ -20,7 +23,7 @@ const Footer = () => {
             <Link to="/contact" className="hover:text-gray-400 transition duration-300" aria-label="Contact Us">
               Contact Us
             </Link>
-          </div>
+          </nav>
         </div>
         <div className="mt-6 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} FashionBlog. All rights reserved.</p>

@@ -1,49 +1,45 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
-import SearchFilters from '../components/SearchFilters';
-import FeaturedListings from '../components/FeaturedListings';
-import Benefits from '../components/Benefits';
-import HowItWorks from '../components/HowItWorks';
-import Testimonials from '../components/Testimonials';
-import StrongCTA from '../components/StrongCTA';
+import SearchBar from '../components/SearchBar';
+import CategoryList from '../components/CategoryList';
+import BlogCard from '../components/BlogCard';
 import Footer from '../components/Footer';
+import blogs from '../data/blogs.json';
 
 const HomePage = () => {
-  const featuredListings = [
-    {
-      id: 1,
-      image: 'https://via.placeholder.com/300',
-      title: 'Stylish Jacket',
-      description: 'A trendy jacket perfect for any occasion.',
-      price: 120,
-    },
-    {
-      id: 2,
-      image: 'https://via.placeholder.com/300',
-      title: 'Elegant Dress',
-      description: 'An elegant dress for your special events.',
-      price: 150,
-    },
-    {
-      id: 3,
-      image: 'https://via.placeholder.com/300',
-      title: 'Casual Sneakers',
-      description: 'Comfortable sneakers for everyday wear.',
-      price: 80,
-    },
-  ];
+  const handleSearch = (query) => {
+    console.log('Search query:', query);
+  };
+
+  const featuredBlogs = blogs.slice(0, 3); // Assuming the first 3 blogs are featured
 
   return (
     <>
-      <Navbar />
+      <Header />
       <HeroSection />
-      <SearchFilters />
-      <FeaturedListings listings={featuredListings} />
-      <Benefits />
-      <HowItWorks />
-      <Testimonials />
-      <StrongCTA />
+      <SearchBar onSearch={handleSearch} />
+      <CategoryList />
+      <section className="bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200 py-8">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Featured Blogs</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {featuredBlogs.map((post) => (
+              <BlogCard key={post.id} post={post} />
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="bg-gray-100 py-8">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Latest Blogs</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {blogs.map((post) => (
+              <BlogCard key={post.id} post={post} />
+            ))}
+          </div>
+        </div>
+      </section>
       <Footer />
     </>
   );
