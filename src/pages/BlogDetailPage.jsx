@@ -38,14 +38,14 @@ const BlogDetailPage = () => {
 
   return (
     <article className="bg-white shadow-md rounded-lg overflow-hidden">
-      <img src={blog.image} alt={blog.title} className="w-full h-64 object-cover" />
+      <img src={blog.image} alt={`Image for ${blog.title}`} className="w-full h-64 object-cover" />
       <div className="p-6">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">{blog.title}</h1>
         <p className="text-gray-600 mb-6">{blog.content}</p>
-        <div className="text-gray-500 text-sm">
-          <span>By {blog.author}</span> | <span>{new Date(blog.date).toLocaleDateString()}</span>
+        <div className="text-gray-500 text-sm mb-4">
+          <span>By {blog.author}</span> | <span>{new Date(blog.date).toLocaleDateString()}</span> | <span className="capitalize">{blog.category}</span>
         </div>
-        <Link to="/blogs" className="inline-block mt-6 text-blue-600 hover:text-blue-800 transition duration-300">
+        <Link to="/blogs" className="inline-block mt-6 text-blue-600 hover:text-blue-800 transition duration-300" aria-label="Back to Blog List">
           &larr; Back to Blog List
         </Link>
       </div>
