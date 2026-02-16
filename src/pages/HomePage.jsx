@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import SearchBar from '../components/SearchBar';
 import CategoryList from '../components/CategoryList';
@@ -16,7 +15,6 @@ const HomePage = () => {
 
   return (
     <>
-      <Header />
       <HeroSection />
       <SearchBar onSearch={handleSearch} />
       <CategoryList />
