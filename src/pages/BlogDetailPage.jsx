@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import blogs from '../data/blogs.json';
 
 const BlogDetailPage = () => {
@@ -45,6 +45,9 @@ const BlogDetailPage = () => {
         <div className="text-gray-500 text-sm">
           <span>By {blog.author}</span> | <span>{new Date(blog.date).toLocaleDateString()}</span>
         </div>
+        <Link to="/blogs" className="inline-block mt-6 text-blue-600 hover:text-blue-800 transition duration-300">
+          &larr; Back to Blog List
+        </Link>
       </div>
     </article>
   );
