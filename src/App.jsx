@@ -11,6 +11,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import SellPage from './pages/SellPage';
 import SignupPage from './pages/SignupPage';
+import ContactForm from './components/ContactForm';
 
 function App() {
   return (
