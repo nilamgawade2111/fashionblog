@@ -2,12 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import AboutUs from './pages/AboutUs';
-import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
-import BlogsPage from './pages/BlogsPage';
-import ContactPage from './pages/ContactPage';
+import BlogListPage from './pages/BlogListPage';
+import BlogDetailPage from './pages/BlogDetailPage';
+import CategoryPage from './pages/CategoryPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import SellPage from './pages/SellPage';
+import ShopPage from './pages/ShopPage';
+import SignupPage from './pages/SignupPage';
 
 function App() {
   return (
@@ -17,11 +20,13 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/sell" element={<HomePage />} />
-          <Route path="/shop" element={<AboutUs />} />
-          <Route path="/signup" element={<BlogsPage />} />
+          <Route path="/blogs" element={<BlogListPage />} />
+          <Route path="/blogs/:id" element={<BlogDetailPage />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
+          <Route path="/sell" element={<SellPage />} />
+          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/signup" element={<SignupPage />} />
         </Routes>
       </div>
       <Footer />
