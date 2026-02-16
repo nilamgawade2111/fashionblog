@@ -1,55 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import blogs from '../data/blogs.json';
+import blogsData from '../data/blogs.json';
 
 const BlogDetailPage = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchBlog = async () => {
-      try {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        const foundBlog = blogs.find((b) => b.id === parseInt(id, 10));
-        if (foundBlog) {
-          setBlog(foundBlog);
-        } else {
-          setError('Blog not found');
-        }
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to load blog');
-        setLoading(false);
-      }
-    };
-
-    fetchBlog();
+    const selectedBlog = blogsData.find((blog) => blog.id === parseInt(id, 10));
+    setBlog(selectedBlog);
   }, [id]);
 
-  if (loading) {
-    return <div className="text-center py-8">Loading blog...</div>;
-  }
-
-  if (error) {
-    return <div className="text-center py-8 text-red-500">{error}</div>;
+  if (!blog) {
+    return (
+      <main className="bg-gray-100 min-h-screen p-5 flex items-center justify-center">
+        <p className="text-xl text-gray-700">Loading...</p>
+      </main>
+    );
   }
 
   return (
-    <article className="bg-white shadow-md rounded-lg overflow-hidden">
-      <img src={blog.image} alt={`Image for ${blog.title}`} className="w-full h-64 object-cover" />
-      <div className="p-6">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">{blog.title}</h1>
-        <p className="text-gray-600 mb-6">{blog.content}</p>
-        <div className="text-gray-500 text-sm mb-4">
-          <span>By {blog.author}</span> | <span>{new Date(blog.date).toLocaleDateString()}</span> | <span className="capitalize">{blog.category}</span>
+    <main className="bg-gray-100 min-h-screen p-5">
+      <section className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+        <img
+          src={`/images/${blog.image}`}
+          alt={blog.title}
+          className="w-full h-64 object-cover"
+        />
+        <div className="p-5">
+          <h2 className="text-3xl font-bold mb-4">{blog.title}</h2>
+          <p className="text-gray-600 mb-4">{blog.author} - {new Date(blog.date).toLocaleDateString()}</p>
+          <p className="text-gray-700 mb-4">{blog.content}</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {blog.tags.map((tag, index) => (
+              <span key={index} className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">
+                #{tag}
+              </span>
+            ))}
+          </div>
+          <Link to="/" className="text-blue-500 hover:underline">
+            Back to Blog List
+          </Link>
         </div>
-        <Link to="/blogs" className="inline-block mt-6 text-blue-600 hover:text-blue-800 transition duration-300" aria-label="Back to Blog List">
-          &larr; Back to Blog List
-        </Link>
-      </div>
-    </article>
+      </section>
+    </main>
   );
 };
 

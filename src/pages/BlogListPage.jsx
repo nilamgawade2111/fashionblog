@@ -1,60 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import blogs from '../data/blogs.json';
-import BlogCard from '../components/BlogCard';
-import SearchBar from '../components/SearchBar';
+import blogsData from '../data/blogs.json';
 
 const BlogListPage = () => {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [blogList, setBlogList] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        setBlogList(blogs);
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to load blogs');
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+    // Simulate fetching data from a JSON file
+    setBlogs(blogsData);
   }, []);
 
-  const handleSearchChange = (query) => {
-    setSearchQuery(query);
-  };
-
-  const filteredBlogs = blogList.filter((blog) =>
-    blog.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  if (loading) {
-    return <div className="text-center py-8">Loading blogs...</div>;
-  }
-
-  if (error) {
-    return <div className="text-center py-8 text-red-500">{error}</div>;
-  }
-
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">All Blogs</h1>
-      <div className="mb-6">
-        <SearchBar onSearch={handleSearchChange} />
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {filteredBlogs.map((blog) => (
-          <Link to={`/blogs/${blog.id}`} key={blog.id}>
-            <BlogCard post={blog} />
-          </Link>
-        ))}
-      </div>
-    </div>
+    <main className="bg-gray-100 min-h-screen p-5">
+      <section className="max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-8">Blog Entries</h2>
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {blogs.map((blog) => (
+            <article key={blog.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <img
+                src={`/images/${blog.image}`}
+                alt={blog.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-5">
+                <h3 className="text-xl font-semibold mb-2">{blog.title}</h3>
+                <p className="text-gray-600 mb-4">{blog.author} - {new Date(blog.date).toLocaleDateString()}</p>
+                <p className="text-gray-700 mb-4">{blog.content.substring(0, 100)}...</p>
+                <Link to={`/blog/${blog.id}`} className="text-blue-500 hover:underline">
+                  Read more
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 };
 

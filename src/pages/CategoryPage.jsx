@@ -1,82 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import blogs from '../data/blogs.json';
-import BlogCard from '../components/BlogCard';
-import CategoryList from '../components/CategoryList';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { useParams, Link } from 'react-router-dom';
+import blogsData from '../data/blogs.json';
+import BlogEntry from '../components/BlogEntry';
 
 const CategoryPage = () => {
   const { category } = useParams();
   const [filteredBlogs, setFilteredBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    const fetchBlogsByCategory = async () => {
-      try {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        const categoryBlogs = blogs.filter((blog) => blog.category.toLowerCase() === category.toLowerCase());
-        if (categoryBlogs.length > 0) {
-          setFilteredBlogs(categoryBlogs);
-        } else {
-          setError('No blogs found for this category');
-        }
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to load blogs');
-        setLoading(false);
-      }
-    };
-
-    fetchBlogsByCategory();
+    const filtered = blogsData.filter((blog) =>
+      blog.tags.includes(category)
+    );
+    setFilteredBlogs(filtered);
   }, [category]);
 
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const filteredAndSearchedBlogs = filteredBlogs.filter((blog) =>
-    blog.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  if (loading) {
-    return <div className="text-center py-8" aria-label="Loading blogs">Loading blogs...</div>;
-  }
-
-  if (error) {
-    return <div className="text-center py-8 text-red-500" aria-label="Error message">{error}</div>;
-  }
-
   return (
-    <>
-      <Header />
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center capitalize" aria-label={`${category} Blogs`}>{category} Blogs</h1>
-        <CategoryList />
-        <div className="mb-6">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={handleSearchChange}
-            placeholder="Search blogs..."
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            aria-label="Search blogs"
-          />
-        </div>
-        {filteredAndSearchedBlogs.length === 0 ? (
-          <div className="text-center py-8 text-gray-500" aria-label="No blogs found message">No blogs found for this category.</div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {filteredAndSearchedBlogs.map((blog) => (
-              <BlogCard key={blog.id} post={blog} />
+    <main className="bg-gray-100 min-h-screen p-5">
+      <section className="max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-8 capitalize">
+          {category} Blogs
+        </h2>
+        {filteredBlogs.length > 0 ? (
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredBlogs.map((blog) => (
+              <BlogEntry
+                key={blog.id}
+                id={blog.id}
+                title={blog.title}
+                author={blog.author}
+                date={blog.date}
+                content={blog.content}
+                image={blog.image}
+              />
             ))}
           </div>
+        ) : (
+          <p className="text-center text-gray-700">
+            No blogs found for this category.
+          </p>
         )}
-      </div>
-      <Footer />
-    </>
+        <div className="mt-8 text-center">
+          <Link to="/" className="text-blue-500 hover:underline">
+            Back to Blog List
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 };
 
