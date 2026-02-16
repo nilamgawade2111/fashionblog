@@ -18,9 +18,6 @@ function App() {
             <Route path="/blogs" element={<BlogListPage />} />
             <Route path="/blog/:id" element={<BlogDetailPage />} />
             <Route path="/category/:category" element={<CategoryPage />} />
-            <Route path="/category/fashion" element={<CategoryPage />} />
-            <Route path="/category/lifestyle" element={<CategoryPage />} />
-            <Route path="/category/travel" element={<CategoryPage />} />
           </Routes>
         </main>
         <Footer />

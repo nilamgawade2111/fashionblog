@@ -5,10 +5,7 @@ const SearchBar = ({ onSearch }) => {
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
-  };
-
-  const handleSearch = () => {
-    onSearch(query);
+    onSearch(e.target.value);
   };
 
   return (
@@ -21,13 +18,6 @@ const SearchBar = ({ onSearch }) => {
         className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-label="Search blog titles"
       />
-      <button
-        onClick={handleSearch}
-        className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300"
-        aria-label="Search"
-      >
-        Search
-      </button>
     </div>
   );
 };

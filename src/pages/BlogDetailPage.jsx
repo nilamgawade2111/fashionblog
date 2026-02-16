@@ -13,14 +13,14 @@ const BlogDetailPage = () => {
 
   if (!blog) {
     return (
-      <main className="bg-gray-100 min-h-screen p-5 flex items-center justify-center">
+      <div className="bg-gray-100 min-h-screen p-5 flex items-center justify-center">
         <p className="text-xl text-gray-700">Loading...</p>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="bg-gray-100 min-h-screen p-5">
+    <div className="bg-gray-100 min-h-screen p-5">
       <section className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
         <img
           src={`/images/${blog.image}`}
@@ -38,12 +38,12 @@ const BlogDetailPage = () => {
               </span>
             ))}
           </div>
-          <Link to="/" className="text-blue-500 hover:underline">
+          <Link to="/blogs" className="text-blue-500 hover:underline">
             Back to Blog List
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 
