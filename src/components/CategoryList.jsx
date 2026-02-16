@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CategoryList = ({ categories }) => {
+const CategoryList = ({ categories, onCategorySelect }) => {
+  const handleCategoryClick = (category) => {
+    onCategorySelect(category);
+  };
+
   return (
     <section aria-label="Blog Categories" className="py-8">
       <div className="container mx-auto px-6">
@@ -9,9 +13,12 @@ const CategoryList = ({ categories }) => {
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {categories.map((category) => (
             <li key={category} className="bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <Link to={`/category/${category}`} className="block p-4 text-center text-lg font-semibold text-gray-800 hover:text-blue-500">
+              <button
+                onClick={() => handleCategoryClick(category)}
+                className="block w-full p-4 text-center text-lg font-semibold text-gray-800 hover:text-blue-500"
+              >
                 {category}
-              </Link>
+              </button>
             </li>
           ))}
         </ul>

@@ -6,17 +6,21 @@ const BlogList = ({ blogs }) => {
     <section aria-label="Blog List" className="py-8">
       <div className="container mx-auto px-6">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {blogs.map((blog) => (
-            <BlogCard
-              key={blog.id}
-              id={blog.id}
-              title={blog.title}
-              author={blog.author}
-              date={blog.date}
-              content={blog.content}
-              image={blog.image}
-            />
-          ))}
+          {blogs.length > 0 ? (
+            blogs.map((blog) => (
+              <BlogCard
+                key={blog.id}
+                id={blog.id}
+                title={blog.title}
+                author={blog.author}
+                date={blog.date}
+                content={blog.content}
+                image={blog.image}
+              />
+            ))
+          ) : (
+            <p className="text-center text-gray-500">No blogs found.</p>
+          )}
         </div>
       </div>
     </section>

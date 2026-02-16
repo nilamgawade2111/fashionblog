@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import blogsData from '../data/blogs.json';
 import SearchBar from '../components/SearchBar';
 import BlogList from '../components/BlogList';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const BlogListPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -11,6 +13,7 @@ const BlogListPage = () => {
   const [blogsPerPage] = useState(6);
   const [categories, setCategories] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     setBlogs(blogsData);
@@ -40,6 +43,10 @@ const BlogListPage = () => {
     setCurrentPage(1);
   };
 
+  const handleBlogClick = (id) => {
+    navigate(`/blog/${id}`);
+  };
+
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
   const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
@@ -48,6 +55,7 @@ const BlogListPage = () => {
 
   return (
     <>
+      <Header />
       <SearchBar onSearch={handleSearch} />
       <section className="max-w-4xl mx-auto p-5">
         <h2 className="text-3xl font-bold text-center mb-8">Blog Entries</h2>
@@ -72,7 +80,10 @@ const BlogListPage = () => {
             aria-label="Filter by publication date"
           />
         </div>
-        <BlogList blogs={currentBlogs} />
+        <BlogList blogs={currentBlogs.map(blog => ({
+          ...blog,
+          onClick: () => handleBlogClick(blog.id)
+        }))} />
         <div className="flex justify-center mt-8">
           <nav aria-label="Page navigation">
             <ul className="inline-flex items-center -space-x-px">
@@ -90,6 +101,7 @@ const BlogListPage = () => {
           </nav>
         </div>
       </section>
+      <Footer />
     </>
   );
 };
