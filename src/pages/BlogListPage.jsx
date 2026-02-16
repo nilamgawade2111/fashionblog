@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import blogs from '../data/blogs.json';
 import BlogCard from '../components/BlogCard';
 
@@ -35,7 +36,9 @@ const BlogListPage = () => {
       <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">All Blogs</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {blogList.map((blog) => (
-          <BlogCard key={blog.id} post={blog} />
+          <Link to={`/blogs/${blog.id}`} key={blog.id}>
+            <BlogCard post={blog} />
+          </Link>
         ))}
       </div>
     </div>
