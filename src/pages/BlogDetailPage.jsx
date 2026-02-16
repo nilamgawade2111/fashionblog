@@ -11,7 +11,6 @@ const BlogDetailPage = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        // Simulate network delay
         await new Promise((resolve) => setTimeout(resolve, 1000));
         const foundBlog = blogs.find((b) => b.id === parseInt(id, 10));
         if (foundBlog) {

@@ -12,7 +12,6 @@ const CategoryPage = () => {
   useEffect(() => {
     const fetchBlogsByCategory = async () => {
       try {
-        // Simulate network delay
         await new Promise((resolve) => setTimeout(resolve, 1000));
         const categoryBlogs = blogs.filter((blog) => blog.category.toLowerCase() === category.toLowerCase());
         if (categoryBlogs.length > 0) {

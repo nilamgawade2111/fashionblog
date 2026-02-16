@@ -6,7 +6,8 @@
     "content": "Fashion is ever-evolving, and this season is no different. With bold colors and unique patterns taking center stage, it's time to refresh your wardrobe. Whether you're looking for something casual or formal, there's a trend for everyone.",
     "image": "https://example.com/images/fashion-trends.jpg",
     "author": "Jane Doe",
-    "date": "2023-10-01"
+    "date": "2023-10-01",
+    "category": "Trends"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "content": "Sustainable fashion is about making choices that are better for the environment. From choosing eco-friendly materials to supporting ethical brands, there are many ways to make a difference. This guide will help you navigate the world of sustainable fashion.",
     "image": "https://example.com/images/sustainable-fashion.jpg",
     "author": "John Smith",
-    "date": "2023-09-15"
+    "date": "2023-09-15",
+    "category": "Sustainability"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "content": "Accessories can make or break an outfit. Whether you're dressing up for a formal event or keeping it casual, the right accessories can elevate your look. Learn how to choose the perfect accessories for any occasion.",
     "image": "https://example.com/images/accessorizing.jpg",
     "author": "Emily Johnson",
-    "date": "2023-08-20"
+    "date": "2023-08-20",
+    "category": "Accessories"
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "content": "Men's fashion has undergone significant changes over the years. From the classic styles of the early 20th century to the bold and experimental looks of today, explore how men's fashion has evolved and what it means for the modern man.",
     "image": "https://example.com/images/mens-fashion.jpg",
     "author": "Michael Brown",
-    "date": "2023-07-10"
+    "date": "2023-07-10",
+    "category": "Men"
   },
   {
     "id": 5,
@@ -42,6 +46,7 @@
     "content": "Being a modern woman means having a wardrobe that is both stylish and functional. From essential pieces to the latest trends, discover fashion tips that will help you look and feel your best.",
     "image": "https://example.com/images/womens-fashion.jpg",
     "author": "Sophia Lee",
-    "date": "2023-06-05"
+    "date": "2023-06-05",
+    "category": "Women"
   }
 ]
