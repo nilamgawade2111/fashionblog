@@ -16,7 +16,7 @@ const FeaturedListings = ({ listings }) => {
       <div className="container mx-auto px-4">
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Featured Listings</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {listings.map((listing) => (
+          {listings.slice(0, 10).map((listing) => (
             <div key={listing.id} className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <img src={listing.image} alt={listing.title} className="w-full h-48 object-cover" />
               <div className="p-4">
