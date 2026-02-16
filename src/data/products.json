@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Classic White T-Shirt",
+    "description": "A timeless classic, this white t-shirt is perfect for any occasion.",
+    "price": 19.99,
+    "image": "https://example.com/images/classic-white-tshirt.jpg",
+    "category": "Tops",
+    "stock": 50
+  },
+  {
+    "id": 2,
+    "name": "Denim Jacket",
+    "description": "Stay stylish and warm with this classic denim jacket.",
+    "price": 49.99,
+    "image": "https://example.com/images/denim-jacket.jpg",
+    "category": "Outerwear",
+    "stock": 30
+  },
+  {
+    "id": 3,
+    "name": "Black Skinny Jeans",
+    "description": "These black skinny jeans are a wardrobe staple.",
+    "price": 39.99,
+    "image": "https://example.com/images/black-skinny-jeans.jpg",
+    "category": "Bottoms",
+    "stock": 40
+  },
+  {
+    "id": 4,
+    "name": "Red Summer Dress",
+    "description": "Brighten up your wardrobe with this vibrant red summer dress.",
+    "price": 59.99,
+    "image": "https://example.com/images/red-summer-dress.jpg",
+    "category": "Dresses",
+    "stock": 20
+  },
+  {
+    "id": 5,
+    "name": "Leather Boots",
+    "description": "These leather boots are perfect for any season.",
+    "price": 89.99,
+    "image": "https://example.com/images/leather-boots.jpg",
+    "category": "Footwear",
+    "stock": 15
+  }
+]

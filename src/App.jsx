@@ -13,6 +13,7 @@ import SellPage from './pages/SellPage';
 import SignupPage from './pages/SignupPage';
 import ContactForm from './components/ContactForm';
 import ContactInfo from './components/ContactInfo';
+import products from './data/products.json';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/sell" element={<SellPage />} />
-          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/shop" element={<ShopPage products={products} />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/contact-form" element={<ContactForm />} />
           <Route path="/contact-info" element={<ContactInfo />} />
