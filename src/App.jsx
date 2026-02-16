@@ -3,20 +3,26 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BlogListPage from './pages/BlogListPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 import CategoryPage from './pages/CategoryPage';
+import HomePage from './pages/HomePage';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
-      <div className="text-center">
-        <header className="bg-gray-800 px-5 py-20 text-white min-h-screen flex flex-col items-center justify-center text-[calc(10px+2vmin)]">
-          <h1 className="text-4xl font-bold mb-4">Welcome to fashionblog</h1>
-          <p className="text-xl">Your React application is running!</p>
-        </header>
-        <Routes>
-          <Route path="/" element={<BlogListPage />} />
-          <Route path="/blog/:id" element={<BlogDetailPage />} />
-          <Route path="/category/:category" element={<CategoryPage />} />
-        </Routes>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/blog/:id" element={<BlogDetailPage />} />
+            <Route path="/category/:category" element={<CategoryPage />} />
+            <Route path="/category/fashion" element={<CategoryPage />} />
+            <Route path="/category/lifestyle" element={<CategoryPage />} />
+            <Route path="/category/travel" element={<CategoryPage />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
     </Router>
   );

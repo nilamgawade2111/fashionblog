@@ -1,42 +1,43 @@
-import React from 'react';
-import HeroSection from '../components/HeroSection';
-import SearchBar from '../components/SearchBar';
-import CategoryList from '../components/CategoryList';
+import React, { useState, useEffect } from 'react';
+import Banner from '../components/Banner';
 import BlogCard from '../components/BlogCard';
-import blogs from '../data/blogs.json';
+import CategoryList from '../components/CategoryList';
+import blogsData from '../data/blogs.json';
 
 const HomePage = () => {
-  const handleSearch = (query) => {
-    console.log('Search query:', query);
-  };
+  const [featuredBlogs, setFeaturedBlogs] = useState([]);
+  const [latestBlogs, setLatestBlogs] = useState([]);
+  const categories = ['fashion', 'lifestyle', 'travel'];
 
-  const featuredBlogs = blogs.slice(0, 3); // Assuming the first 3 blogs are featured
+  useEffect(() => {
+    const featured = blogsData.slice(0, 3);
+    const latest = blogsData.slice(3, 9);
+    setFeaturedBlogs(featured);
+    setLatestBlogs(latest);
+  }, []);
 
   return (
     <>
-      <HeroSection />
-      <SearchBar onSearch={handleSearch} />
-      <CategoryList />
-      <section className="bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200 py-8">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Featured Blogs</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {featuredBlogs.map((post) => (
-              <BlogCard key={post.id} post={post} />
+      <Banner featuredBlogs={featuredBlogs} />
+      <section className="py-12">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-8">Latest Blogs</h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {latestBlogs.map((blog) => (
+              <BlogCard
+                key={blog.id}
+                id={blog.id}
+                title={blog.title}
+                author={blog.author}
+                date={blog.date}
+                content={blog.content}
+                image={blog.image}
+              />
             ))}
           </div>
         </div>
       </section>
-      <section className="bg-gray-100 py-8">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Latest Blogs</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {blogs.map((post) => (
-              <BlogCard key={post.id} post={post} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <CategoryList categories={categories} />
     </>
   );
 };
