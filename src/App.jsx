@@ -12,6 +12,7 @@ import ContactPage from './pages/ContactPage';
 import SellPage from './pages/SellPage';
 import SignupPage from './pages/SignupPage';
 import ContactForm from './components/ContactForm';
+import ContactInfo from './components/ContactInfo';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/contact-form" element={<ContactForm />} />
+          <Route path="/contact-info" element={<ContactInfo />} />
         </Routes>
       </div>
       <Footer />
