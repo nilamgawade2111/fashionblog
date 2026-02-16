@@ -3,7 +3,6 @@ import HeroSection from '../components/HeroSection';
 import SearchBar from '../components/SearchBar';
 import CategoryList from '../components/CategoryList';
 import BlogCard from '../components/BlogCard';
-import Footer from '../components/Footer';
 import blogs from '../data/blogs.json';
 
 const HomePage = () => {
@@ -38,7 +37,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 };
