@@ -10,9 +10,6 @@ const Footer = () => {
             <p className="text-gray-400">Stay stylish with us</p>
           </div>
         </div>
-        <div className="mt-6 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} FashionBlog. All rights reserved.</p>
-        </div>
       </div>
     </footer>
   );
