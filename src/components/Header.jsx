@@ -51,6 +51,14 @@ const Header = () => {
           >
             Travel
           </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `text-lg hover:text-gray-300 ${isActive ? 'text-gray-300' : 'text-white'}`
+            }
+          >
+            About
+          </NavLink>
         </nav>
       </div>
     </header>
