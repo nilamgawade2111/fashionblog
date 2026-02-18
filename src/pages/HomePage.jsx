@@ -6,14 +6,8 @@ import Banner from '../components/Banner';
 import blogsData from '../data/blogs.json';
 
 const HomePage = () => {
-  const categories = [
-    { id: 1, name: 'Fashion' },
-    { id: 2, name: 'Lifestyle' },
-    { id: 3, name: 'Trends' },
-    { id: 4, name: 'Tips' },
-  ];
-
   const latestBlogs = blogsData.slice(0, 6); // Assuming we want to show the latest 6 blogs
+  const featuredBlogs = blogsData.filter(blog => blog.isFeatured).slice(0, 3);
 
   return (
     <div className="p-5 bg-gray-100">
@@ -39,7 +33,7 @@ const HomePage = () => {
           </Link>
         </div>
       </section>
-      <Banner />
+      <Banner featuredBlogs={featuredBlogs} />
       <section className="max-w-4xl mx-auto mt-8">
         <h2 className="text-3xl font-bold text-gray-800 mb-6">Latest Blogs</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -49,7 +43,7 @@ const HomePage = () => {
         </div>
       </section>
       <section className="max-w-4xl mx-auto mt-8">
-        <CategoryList categories={categories} />
+        <CategoryList />
       </section>
     </div>
   );

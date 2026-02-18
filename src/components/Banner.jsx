@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import blogsData from '../data/blogs.json';
 
-const Banner = () => {
-  const featuredBlogs = blogsData.filter(blog => blog.isFeatured);
-
+const Banner = ({ featuredBlogs }) => {
   if (featuredBlogs.length === 0) {
     return (
       <div className="text-center py-8">
