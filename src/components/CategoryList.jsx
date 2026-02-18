@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import blogsData from '../data/blogs.json';
 
 const CategoryList = () => {
-  const categories = blogsData.reduce((acc, blog) => {
+  const categories = blogsData?.reduce((acc, blog) => {
     if (blog?.categories) {
       blog.categories.forEach((category) => {
         if (!acc.some((cat) => cat.name === category)) {
@@ -12,7 +12,7 @@ const CategoryList = () => {
       });
     }
     return acc;
-  }, []);
+  }, []) ?? [];
 
   if (categories.length === 0) {
     return (
