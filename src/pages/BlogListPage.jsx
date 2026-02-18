@@ -6,8 +6,8 @@ const BlogListPage = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    // Update image URLs
-    const updatedBlogs = blogsData.map(blog => ({
+    // Update image URLs and limit to 10 more blogs
+    const updatedBlogs = blogsData.slice(0, 20).map(blog => ({
       ...blog,
       image: blog.image === 'https://example.com/images/sustainable-fashion.jpg'
         ? 'https://th.bing.com/th/id/OIP.qy8gLIbvZO-8ox82MVM9tAHaEK?w=274&h=180&c=7&r=0&o=7&cb=defcache2&dpr=1.3&pid=1.7&rm=3&defcache=1'
