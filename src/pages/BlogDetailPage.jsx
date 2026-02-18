@@ -8,7 +8,15 @@ const BlogDetailPage = () => {
 
   useEffect(() => {
     const foundBlog = blogsData.find((b) => b.id === parseInt(id, 10));
-    setBlog(foundBlog);
+    if (foundBlog) {
+      const updatedBlog = {
+        ...foundBlog,
+        image: foundBlog.image === 'https://example.com/images/sustainable-fashion.jpg'
+          ? 'https://th.bing.com/th/id/OIP.qy8gLIbvZO-8ox82MVM9tAHaEK?w=274&h=180&c=7&r=0&o=7&cb=defcache2&dpr=1.3&pid=1.7&rm=3&defcache=1'
+          : foundBlog.image
+      };
+      setBlog(updatedBlog);
+    }
   }, [id]);
 
   if (!blog) {

@@ -6,8 +6,14 @@ const BlogListPage = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    // Simulate fetching data
-    setBlogs(blogsData);
+    // Update image URLs
+    const updatedBlogs = blogsData.map(blog => ({
+      ...blog,
+      image: blog.image === 'https://example.com/images/sustainable-fashion.jpg'
+        ? 'https://th.bing.com/th/id/OIP.qy8gLIbvZO-8ox82MVM9tAHaEK?w=274&h=180&c=7&r=0&o=7&cb=defcache2&dpr=1.3&pid=1.7&rm=3&defcache=1'
+        : blog.image
+    }));
+    setBlogs(updatedBlogs);
   }, []);
 
   if (blogs.length === 0) {
