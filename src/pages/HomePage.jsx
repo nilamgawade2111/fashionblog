@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BlogCard from '../components/BlogCard';
 import CategoryList from '../components/CategoryList';
@@ -6,8 +6,13 @@ import Banner from '../components/Banner';
 import blogsData from '../data/blogs.json';
 
 const HomePage = () => {
-  const latestBlogs = blogsData.slice(0, 6); // Assuming we want to show the latest 6 blogs
-  const featuredBlogs = blogsData.filter(blog => blog.isFeatured).slice(0, 3);
+  const [latestBlogs, setLatestBlogs] = useState([]);
+  const [featuredBlogs, setFeaturedBlogs] = useState([]);
+
+  useEffect(() => {
+    setLatestBlogs(blogsData.slice(0, 6)); // Assuming we want to show the latest 6 blogs
+    setFeaturedBlogs(blogsData.filter(blog => blog.isFeatured).slice(0, 3));
+  }, []);
 
   return (
     <div className="p-5 bg-gray-100">

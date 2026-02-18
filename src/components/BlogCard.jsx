@@ -11,7 +11,7 @@ const BlogCard = ({ blog }) => {
       />
       <div className="p-4">
         <h3 className="text-xl font-semibold text-gray-900">{blog.title}</h3>
-        <p className="text-gray-600 mt-2">{blog.excerpt}</p>
+        <p className="text-gray-600 mt-2">{blog.summary}</p>
         <Link
           to={`/blog/${blog.id}`}
           className="inline-block mt-4 text-blue-500 hover:text-blue-700 transition-colors"

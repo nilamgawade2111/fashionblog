@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import blogsData from '../data/blogs.json';
 
 const CategoryList = () => {
-  const categories = blogsData?.reduce((acc, blog) => {
-    if (blog?.categories) {
-      blog.categories.forEach((category) => {
-        if (!acc.some((cat) => cat.name === category)) {
-          acc.push({ id: acc.length + 1, name: category });
-        }
-      });
-    }
-    return acc;
-  }, []) ?? [];
+  const categories = useMemo(() => {
+    return blogsData?.reduce((acc, blog) => {
+      if (blog?.categories) {
+        blog.categories.forEach((category) => {
+          if (!acc.some((cat) => cat.name === category)) {
+            acc.push({ id: acc.length + 1, name: category });
+          }
+        });
+      }
+      return acc;
+    }, []) ?? [];
+  }, [blogsData]);
 
   if (categories.length === 0) {
     return (
