@@ -39,6 +39,23 @@ const Footer = () => {
             Terms of Service
           </Link>
         </nav>
+        <div className="mt-4 md:mt-0">
+          <p className="text-gray-400">Follow us on:</p>
+          <div className="flex space-x-4 mt-2">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-blue-400 transition-colors">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-blue-400 transition-colors">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-blue-400 transition-colors">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-blue-400 transition-colors">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );

@@ -23,6 +23,8 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/categories" element={<CategoryPage />} />
+            <Route path="/privacy" element={<div>Privacy Policy</div>} />
+            <Route path="/terms" element={<div>Terms and Conditions</div>} />
           </Routes>
         </div>
         <Footer />

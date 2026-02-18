@@ -5,11 +5,18 @@ const Header = () => {
   return (
     <header className="bg-gray-800 text-white py-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center px-4">
-        <h1 className="text-2xl font-bold">
-          <Link to="/" aria-label="Home">
-            Fashion Blog
-          </Link>
-        </h1>
+        <div className="flex items-center space-x-4">
+          <img
+            src="/path/to/logo.png"
+            alt="Fashion Blog Logo"
+            className="h-10 w-10"
+          />
+          <h1 className="text-2xl font-bold">
+            <Link to="/" aria-label="Home">
+              Fashion Blog
+            </Link>
+          </h1>
+        </div>
         <nav aria-label="Main Navigation">
           <ul className="flex space-x-4">
             <li>
