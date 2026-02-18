@@ -2,8 +2,8 @@ import React from 'react';
 
 const AboutPage = () => {
   return (
-    <main className="p-5 bg-gray-100 min-h-screen">
-      <section className="max-w-4xl mx-auto">
+    <section className="p-5 bg-gray-100">
+      <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-800 mb-6">About Us</h1>
         <p className="text-xl text-gray-700 mb-4">
           Welcome to Fashion Blog, your number one source for all things fashion. We're dedicated to providing you the very best of fashion insights, with an emphasis on trends, tips, and personal style.
@@ -18,8 +18,8 @@ const AboutPage = () => {
           Sincerely, <br />
           The Fashion Blog Team
         </p>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 };
 
