@@ -29,17 +29,17 @@ const CategoryPage = () => {
           {blogs.map((blog) => (
             <article key={blog.id} className="bg-white rounded-lg shadow-md overflow-hidden">
               <img
-                src={blog.image}
-                alt={blog.title}
+                src={blog.image ?? 'https://via.placeholder.com/150'}
+                alt={blog.title ?? 'Blog image'}
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-xl font-semibold text-gray-900">{blog.title}</h3>
-                <p className="text-gray-600 mt-2">{blog.excerpt}</p>
+                <h3 className="text-xl font-semibold text-gray-900">{blog.title ?? 'Untitled'}</h3>
+                <p className="text-gray-600 mt-2">{blog.excerpt ?? 'No excerpt available.'}</p>
                 <Link
                   to={`/blog/${blog.id}`}
                   className="inline-block mt-4 text-blue-500 hover:text-blue-700 transition-colors"
-                  aria-label={`Read more about ${blog.title}`}
+                  aria-label={`Read more about ${blog.title ?? 'this blog'}`}
                 >
                   Read More
                 </Link>
