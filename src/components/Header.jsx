@@ -14,6 +14,15 @@ const Header = () => {
           <ul className="flex space-x-4">
             <li>
               <Link
+                to="/"
+                className="hover:text-blue-400 transition-colors"
+                aria-label="Home"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/blogs"
                 className="hover:text-blue-400 transition-colors"
                 aria-label="View all blog posts"
