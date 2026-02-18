@@ -7,8 +7,10 @@ const CategoryPage = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    const filteredBlogs = blogsData.filter((blog) => blog.category.toLowerCase() === category.toLowerCase());
-    setBlogs(filteredBlogs);
+    if (category) {
+      const filteredBlogs = blogsData.filter((blog) => blog.category?.toLowerCase() === category.toLowerCase());
+      setBlogs(filteredBlogs);
+    }
   }, [category]);
 
   if (blogs.length === 0) {
