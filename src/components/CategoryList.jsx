@@ -4,11 +4,13 @@ import blogsData from '../data/blogs.json';
 
 const CategoryList = () => {
   const categories = blogsData.reduce((acc, blog) => {
-    blog.categories.forEach((category) => {
-      if (!acc.some((cat) => cat.name === category)) {
-        acc.push({ id: acc.length + 1, name: category });
-      }
-    });
+    if (blog?.categories) {
+      blog.categories.forEach((category) => {
+        if (!acc.some((cat) => cat.name === category)) {
+          acc.push({ id: acc.length + 1, name: category });
+        }
+      });
+    }
     return acc;
   }, []);
 
