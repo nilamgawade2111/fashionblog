@@ -1,29 +1,24 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const BlogCard = ({ id, title, author, date, content, image }) => {
-  const navigate = useNavigate();
-
-  const handleCardClick = () => {
-    navigate(`/blog/${id}`);
-  };
-
+const BlogCard = ({ blog }) => {
   return (
-    <article
-      onClick={handleCardClick}
-      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
-      aria-label={`Blog card for ${title}`}
-    >
+    <article className="bg-white rounded-lg shadow-md overflow-hidden">
       <img
-        src={`/images/${image}`}
-        alt={title}
+        src={blog.image}
+        alt={blog.title}
         className="w-full h-48 object-cover"
       />
-      <div className="p-5">
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-gray-600 mb-4">{author} - {new Date(date).toLocaleDateString()}</p>
-        <p className="text-gray-700 mb-4">{content.substring(0, 100)}...</p>
-        <span className="text-blue-500 hover:underline">Read more</span>
+      <div className="p-4">
+        <h3 className="text-xl font-semibold text-gray-900">{blog.title}</h3>
+        <p className="text-gray-600 mt-2">{blog.excerpt}</p>
+        <Link
+          to={`/blog/${blog.id}`}
+          className="inline-block mt-4 text-blue-500 hover:text-blue-700 transition-colors"
+          aria-label={`Read more about ${blog.title}`}
+        >
+          Read More
+        </Link>
       </div>
     </article>
   );

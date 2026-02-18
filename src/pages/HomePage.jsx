@@ -1,44 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import Banner from '../components/Banner';
-import BlogCard from '../components/BlogCard';
-import CategoryList from '../components/CategoryList';
-import blogsData from '../data/blogs.json';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
-  const [featuredBlogs, setFeaturedBlogs] = useState([]);
-  const [latestBlogs, setLatestBlogs] = useState([]);
-  const categories = ['fashion', 'lifestyle', 'travel'];
-
-  useEffect(() => {
-    const featured = blogsData.slice(0, 3);
-    const latest = blogsData.slice(3, 9);
-    setFeaturedBlogs(featured);
-    setLatestBlogs(latest);
-  }, []);
-
   return (
-    <>
-      <Banner featuredBlogs={featuredBlogs} />
-      <section className="py-12">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-8">Latest Blogs</h2>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {latestBlogs.map((blog) => (
-              <BlogCard
-                key={blog.id}
-                id={blog.id}
-                title={blog.title}
-                author={blog.author}
-                date={blog.date}
-                content={blog.content}
-                image={blog.image}
-              />
-            ))}
-          </div>
+    <main className="p-5 bg-gray-100 min-h-screen">
+      <section className="max-w-4xl mx-auto text-center">
+        <h1 className="text-4xl font-bold text-gray-800 mb-6">Welcome to Fashion Blog</h1>
+        <p className="text-xl text-gray-700 mb-8">
+          Discover the latest trends, tips, and insights in the world of fashion.
+        </p>
+        <div className="flex justify-center space-x-4">
+          <Link
+            to="/blogs"
+            className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-colors"
+            aria-label="View all blog posts"
+          >
+            View Blogs
+          </Link>
+          <Link
+            to="/categories"
+            className="px-6 py-3 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors"
+            aria-label="Explore categories"
+          >
+            Explore Categories
+          </Link>
         </div>
       </section>
-      <CategoryList categories={categories} />
-    </>
+    </main>
   );
 };
 

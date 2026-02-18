@@ -1,33 +1,25 @@
 import React from 'react';
-import companyData from '../data/company.json';
 
 const AboutPage = () => {
-  const company = companyData[0];
-
   return (
-    <section className="bg-gray-100 p-5">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
-        <div className="p-6">
-          <h1 className="text-4xl font-bold text-center mb-6">{company.name}</h1>
-          <p className="text-center text-gray-700 mb-4">{company.description}</p>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {company.team.map((member, index) => (
-              <div key={index} className="bg-gray-50 p-4 rounded-lg shadow-md">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-48 object-cover rounded-t-lg"
-                />
-                <div className="p-4">
-                  <h2 className="text-xl font-bold">{member.name}</h2>
-                  <p className="text-gray-600">{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+    <main className="p-5 bg-gray-100 min-h-screen">
+      <section className="max-w-4xl mx-auto">
+        <h1 className="text-4xl font-bold text-gray-800 mb-6">About Us</h1>
+        <p className="text-xl text-gray-700 mb-4">
+          Welcome to Fashion Blog, your number one source for all things fashion. We're dedicated to providing you the very best of fashion insights, with an emphasis on trends, tips, and personal style.
+        </p>
+        <p className="text-xl text-gray-700 mb-4">
+          Founded in 2023, Fashion Blog has come a long way from its beginnings. When we first started out, our passion for fashion drove us to start our own blog.
+        </p>
+        <p className="text-xl text-gray-700 mb-4">
+          We hope you enjoy our blog as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us.
+        </p>
+        <p className="text-xl text-gray-700">
+          Sincerely, <br />
+          The Fashion Blog Team
+        </p>
+      </section>
+    </main>
   );
 };
 

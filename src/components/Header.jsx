@@ -1,64 +1,54 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header className="bg-gray-900 text-white shadow-md">
-      <div className="container mx-auto flex justify-between items-center py-4 px-6">
-        <div className="flex items-center">
-          <Link to="/" className="text-2xl font-bold text-white hover:text-gray-300">
-            FashionBlog
+    <header className="bg-gray-800 text-white py-4 shadow-md">
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <h1 className="text-2xl font-bold">
+          <Link to="/" aria-label="Home">
+            Fashion Blog
           </Link>
-        </div>
-        <nav className="flex space-x-4">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `text-lg hover:text-gray-300 ${isActive ? 'text-gray-300' : 'text-white'}`
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/blogs"
-            className={({ isActive }) =>
-              `text-lg hover:text-gray-300 ${isActive ? 'text-gray-300' : 'text-white'}`
-            }
-          >
-            Blogs
-          </NavLink>
-          <NavLink
-            to="/fashion"
-            className={({ isActive }) =>
-              `text-lg hover:text-gray-300 ${isActive ? 'text-gray-300' : 'text-white'}`
-            }
-          >
-            Fashion
-          </NavLink>
-          <NavLink
-            to="/category/lifestyle"
-            className={({ isActive }) =>
-              `text-lg hover:text-gray-300 ${isActive ? 'text-gray-300' : 'text-white'}`
-            }
-          >
-            Lifestyle
-          </NavLink>
-          <NavLink
-            to="/category/travel"
-            className={({ isActive }) =>
-              `text-lg hover:text-gray-300 ${isActive ? 'text-gray-300' : 'text-white'}`
-            }
-          >
-            Travel
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `text-lg hover:text-gray-300 ${isActive ? 'text-gray-300' : 'text-white'}`
-            }
-          >
-            About
-          </NavLink>
+        </h1>
+        <nav aria-label="Main Navigation">
+          <ul className="flex space-x-4">
+            <li>
+              <Link
+                to="/blogs"
+                className="hover:text-blue-400 transition-colors"
+                aria-label="View all blog posts"
+              >
+                Blogs
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/categories"
+                className="hover:text-blue-400 transition-colors"
+                aria-label="Explore categories"
+              >
+                Categories
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="hover:text-blue-400 transition-colors"
+                aria-label="About us"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="hover:text-blue-400 transition-colors"
+                aria-label="Contact us"
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
         </nav>
       </div>
     </header>

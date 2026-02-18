@@ -2,46 +2,41 @@
   {
     "id": 1,
     "title": "The Rise of Sustainable Fashion",
-    "author": "Jane Doe",
-    "date": "2023-10-01",
-    "content": "Sustainable fashion is becoming increasingly popular as consumers become more aware of the environmental impact of their clothing choices. Brands are now focusing on eco-friendly materials and ethical production processes.",
-    "image": "sustainable-fashion.jpg",
-    "tags": ["sustainability", "eco-friendly", "fashion"]
+    "excerpt": "Discover how sustainable fashion is transforming the industry.",
+    "content": "Sustainable fashion is becoming increasingly popular as consumers become more aware of the environmental impact of their clothing choices. Brands are now focusing on eco-friendly materials and ethical production processes...",
+    "image": "https://example.com/images/sustainable-fashion.jpg",
+    "category": "Sustainability"
   },
   {
     "id": 2,
-    "title": "Top 10 Fall Fashion Trends",
-    "author": "John Smith",
-    "date": "2023-09-15",
-    "content": "As the leaves change color, so does the fashion scene. This fall, expect to see a lot of earthy tones, oversized sweaters, and vintage-inspired pieces making a comeback.",
-    "image": "fall-fashion-trends.jpg",
-    "tags": ["fall", "trends", "fashion"]
+    "title": "Top 10 Fashion Trends for 2023",
+    "excerpt": "Stay ahead of the curve with these top fashion trends.",
+    "content": "As we move into 2023, fashion trends are evolving with a focus on bold colors, oversized silhouettes, and vintage-inspired pieces. Designers are drawing inspiration from the past while incorporating modern twists...",
+    "image": "https://example.com/images/fashion-trends-2023.jpg",
+    "category": "Trends"
   },
   {
     "id": 3,
-    "title": "How to Style Vintage Clothing",
-    "author": "Emily Johnson",
-    "date": "2023-08-20",
-    "content": "Vintage clothing is not only unique but also a sustainable choice. Learn how to mix and match vintage pieces with modern items to create a timeless look.",
-    "image": "vintage-clothing.jpg",
-    "tags": ["vintage", "style", "fashion"]
+    "title": "How to Build a Capsule Wardrobe",
+    "excerpt": "Simplify your life with a versatile capsule wardrobe.",
+    "content": "A capsule wardrobe is a collection of essential clothing items that can be mixed and matched to create a variety of outfits. By focusing on quality over quantity, you can streamline your wardrobe and reduce decision fatigue...",
+    "image": "https://example.com/images/capsule-wardrobe.jpg",
+    "category": "Lifestyle"
   },
   {
     "id": 4,
-    "title": "The Impact of Fast Fashion",
-    "author": "Michael Brown",
-    "date": "2023-07-10",
-    "content": "Fast fashion has revolutionized the clothing industry, but at what cost? This article explores the environmental and social implications of fast fashion and what can be done to mitigate its effects.",
-    "image": "fast-fashion-impact.jpg",
-    "tags": ["fast fashion", "environment", "social impact"]
+    "title": "The Impact of Technology on Fashion",
+    "excerpt": "Explore how technology is reshaping the fashion industry.",
+    "content": "Technology is playing a significant role in the fashion industry, from virtual fashion shows to AI-driven design processes. This integration is not only enhancing creativity but also improving efficiency and sustainability...",
+    "image": "https://example.com/images/technology-fashion.jpg",
+    "category": "Technology"
   },
   {
     "id": 5,
-    "title": "Accessorizing for Every Occasion",
-    "author": "Sophia Lee",
-    "date": "2023-06-05",
-    "content": "Accessories can make or break an outfit. Discover how to choose the right accessories for different occasions, from casual outings to formal events.",
-    "image": "accessorizing.jpg",
-    "tags": ["accessories", "style", "fashion"]
+    "title": "Fashion Tips for Every Body Type",
+    "excerpt": "Learn how to dress for your body type with confidence.",
+    "content": "Understanding your body type is key to dressing well and feeling confident. Whether you're pear-shaped, apple-shaped, or have an hourglass figure, there are styles and cuts that will flatter your unique shape...",
+    "image": "https://example.com/images/body-type-fashion.jpg",
+    "category": "Style"
   }
 ]

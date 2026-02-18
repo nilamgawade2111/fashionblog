@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
 import BlogListPage from './pages/BlogListPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 import CategoryPage from './pages/CategoryPage';
-import HomePage from './pages/HomePage';
-import FashionPage from './pages/FashionPage';
 import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -14,18 +14,17 @@ function App() {
     <Router>
       <div className="flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow">
+        <div className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/blogs" element={<BlogListPage />} />
             <Route path="/blog/:id" element={<BlogDetailPage />} />
-            <Route path="/category/:category" element={<CategoryPage />} />
-            <Route path="/category/fashion" element={<FashionPage />} />
-            <Route path="/category/lifestyle" element={<CategoryPage />} />
-            <Route path="/category/travel" element={<CategoryPage />} />
+            <Route path="/categories/:category" element={<CategoryPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/categories" element={<CategoryPage />} />
           </Routes>
-        </main>
+        </div>
         <Footer />
       </div>
     </Router>

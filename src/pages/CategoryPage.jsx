@@ -1,51 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import blogsData from '../data/blogs.json';
-import BlogEntry from '../components/BlogEntry';
 
 const CategoryPage = () => {
   const { category } = useParams();
-  const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    const filtered = blogsData.filter((blog) =>
-      blog.tags.includes(category)
-    );
-    setFilteredBlogs(filtered);
+    const filteredBlogs = blogsData.filter((blog) => blog.category.toLowerCase() === category.toLowerCase());
+    setBlogs(filteredBlogs);
   }, [category]);
 
+  if (blogs.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <p className="text-xl text-gray-700">No blogs found in this category...</p>
+      </div>
+    );
+  }
+
   return (
-    <main className="bg-gray-100 min-h-screen p-5">
+    <div className="p-5 bg-gray-100">
       <section className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8 capitalize">
-          {category} Blogs
-        </h2>
-        {filteredBlogs.length > 0 ? (
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredBlogs.map((blog) => (
-              <BlogEntry
-                key={blog.id}
-                id={blog.id}
-                title={blog.title}
-                author={blog.author}
-                date={blog.date}
-                content={blog.content}
-                image={blog.image}
+        <h2 className="text-3xl font-bold text-gray-800 mb-6 capitalize">{category} Blogs</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {blogs.map((blog) => (
+            <article key={blog.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <img
+                src={blog.image}
+                alt={blog.title}
+                className="w-full h-48 object-cover"
               />
-            ))}
-          </div>
-        ) : (
-          <p className="text-center text-gray-700">
-            No blogs found for this category.
-          </p>
-        )}
-        <div className="mt-8 text-center">
-          <Link to="/" className="text-blue-500 hover:underline">
-            Back to Blog List
-          </Link>
+              <div className="p-4">
+                <h3 className="text-xl font-semibold text-gray-900">{blog.title}</h3>
+                <p className="text-gray-600 mt-2">{blog.excerpt}</p>
+                <Link
+                  to={`/blog/${blog.id}`}
+                  className="inline-block mt-4 text-blue-500 hover:text-blue-700 transition-colors"
+                  aria-label={`Read more about ${blog.title}`}
+                >
+                  Read More
+                </Link>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 

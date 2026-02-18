@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import blogsData from '../data/blogs.json';
 
 const BlogDetailPage = () => {
@@ -7,42 +7,31 @@ const BlogDetailPage = () => {
   const [blog, setBlog] = useState(null);
 
   useEffect(() => {
-    const selectedBlog = blogsData.find((blog) => blog.id === parseInt(id, 10));
-    setBlog(selectedBlog);
+    const foundBlog = blogsData.find((b) => b.id === parseInt(id, 10));
+    setBlog(foundBlog);
   }, [id]);
 
   if (!blog) {
     return (
-      <div className="bg-gray-100 min-h-screen p-5 flex items-center justify-center">
-        <p className="text-xl text-gray-700">Loading...</p>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <p className="text-xl text-gray-700">Loading blog post...</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-gray-100 min-h-screen p-5">
-      <section className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="p-5 bg-gray-100">
+      <article className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
         <img
-          src={`/images/${blog.image}`}
+          src={blog.image}
           alt={blog.title}
           className="w-full h-64 object-cover"
         />
-        <div className="p-5">
-          <h2 className="text-3xl font-bold mb-4">{blog.title}</h2>
-          <p className="text-gray-600 mb-4">{blog.author} - {new Date(blog.date).toLocaleDateString()}</p>
-          <p className="text-gray-700 mb-4">{blog.content}</p>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {blog.tags.map((tag, index) => (
-              <span key={index} className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">
-                #{tag}
-              </span>
-            ))}
-          </div>
-          <Link to="/blogs" className="text-blue-500 hover:underline">
-            Back to Blog List
-          </Link>
+        <div className="p-6">
+          <h1 className="text-3xl font-bold text-gray-900">{blog.title}</h1>
+          <p className="text-gray-600 mt-4">{blog.content}</p>
         </div>
-      </section>
+      </article>
     </div>
   );
 };
